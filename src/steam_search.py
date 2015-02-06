@@ -48,7 +48,7 @@ def writeItems():
 
 ## const.
 reOption = re.UNICODE | re.DOTALL | re.IGNORECASE
-roItem = re.compile(r'<a class="match" href="(.*?)"><div class="match_name">(.*?)</div><div class="match_img"><img src="(.*?)"></div><div class="match_price">(.*?)</div></a>', reOption)
+roItem = re.compile(r'<a class="match ds_collapse_flag "  data-ds-appid="(.*?)" href="(.*?)"><div class="match_name">(.*?)</div><div class="match_img"><img src="(.*?)"></div><div class="match_price">(.*?)</div></a>', reOption)
 roImageName = re.compile(r'.*/(.*?)/(.*?\.jpg)$', reOption)
 replImageName = r'\1_\2'
 
@@ -58,10 +58,10 @@ def makeItem(itemData, itemIdx, itemPos):
     if mo is None or mo.lastindex is None:
         return (None, None);
 
-    url = urllib.quote(mo.group(1), ":/&?=")  # .replace(" ", "%20")
-    name = parser.unescape(mo.group(2))
-    imageUrl = mo.group(3)
-    price = parser.unescape(mo.group(4))
+    url = urllib.quote(mo.group(2), ":/&?=")  # .replace(" ", "%20")
+    name = parser.unescape(mo.group(3))
+    imageUrl = mo.group(4)
+    price = parser.unescape(mo.group(5))
     itemPos = mo.end()
 
     if price == "":
