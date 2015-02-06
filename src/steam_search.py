@@ -106,7 +106,7 @@ def loadData(url):
         'User-Agent': "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:29.0) Gecko/20100101 Firefox/29.0",
         'Accept': 'text/javascript, text/html, application/xml, text/xml, */*',
         # 'Accept-Encoding': 'gzip, deflate',
-        'Accept-Language': 'ko-kr,ko;q=0.8,en-us;q=0.5,en;q=0.3',
+        'Accept-Language': 'en-US,en;q=0.5',
         'DNT': '1',
         # 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
         'Host': 'store.steampowered.com',
@@ -142,7 +142,7 @@ defaultTitle = "Search Steam for '%s'" % searchTerm
 # default item for 'Open searchUrl'. if keyword is null, show popular
 setDefaultItem(defaultTitle, defaultUrl)
 
-searchUrl = "http://store.steampowered.com/search/suggest?term=%s&f=games&cc=KR&l=koreana" % searchTermQuoted
+searchUrl = "http://store.steampowered.com/search/suggest?term=%s&f=games" % searchTermQuoted
 
 data = loadData(searchUrl)
 # print data
